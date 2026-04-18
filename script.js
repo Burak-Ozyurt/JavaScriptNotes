@@ -1,149 +1,148 @@
 
-// Döngüler (Loops)
+// Fonksiyonlar
 
-
-// while
-
-// let i = 0;
-// while (i < 10)   // sonsuz döngü olur
+// function merhaba()
 // {
-//     console.log(i);
-//     i++; // i+=1
+//     console.log("Merhaba");  // burda ekranda yazmaz
 // }
 
-// let i = 10;
-// while (i > 0)
+// merhaba();
+
+
+// function merhaba(name,age)
 // {
-//     console.log(i);
-//     i--;
+//     console.log(`İsim: ${name} Yaş: ${age}`);
 // }
 
-// break ve continue
+// merhaba("Burak",21);
+// merhaba("Nisa",20);
 
-// let i = 0;
-// while (i < 10)
+
+// function yasHesapla(dogumYili)
 // {
-//     console.log(i);
-//     if (i == 6)
+//      return 2026 - dogumYili;
+// }
+
+// console.log(yasHesapla(2004)); // böyle de olur
+
+// let ageBurak = yasHesapla(2004);
+// let ageNisa = yasHesapla(2005);
+
+// console.log(ageBurak);
+// console.log(ageNisa);
+
+
+// function ehliyetDurumu(dogumYili,isim)
+// {
+//     let yas = yasHesapla(dogumYili);
+//     let ehliyet = 18 - yas;
+
+//     if (ehliyet>0)
 //     {
-//         break;
+//         console.log(`${isim} ehliyet alabilmen için ${ehliyet} yıl kaldı`);
 //     }
-//     i++;
-// }
-
-// let i = 0;
-// while (i < 10)
-// {
-//     if (i == 6)
+//     else
 //     {
-//         continue;
+//         console.log(`${isim} ehliyet alabilirsin!`);
 //     }
-//     console.log(i);
-//     i++;
 // }
 
+// ehliyetDurumu(2004,"Burak");
+// ehliyetDurumu(2021,"Eylül");
 
-// do while
 
-// let i = 0;
-// do
+
+// Window Objesi
+
+
+//veri = window;
+
+//console.log(veri);   // window içine veri atıldı
+
+
+// alert
+
+//alert("Merhaba!");
+
+
+// prompt
+
+//var data = prompt("Adınızı Giriniz: ");
+
+
+// confirm
+
+// data2 = confirm("Çıkmak İstediğinizden Emin Misiniz?");
+
+// if(data2)     // if(data2 == true) aynısı
 // {
-//     console.log(i);
-//     i++;
+//     console.log("Çıkış Gerçekleşti!");
 // }
-// while(i < 10);
-
-
-// for
-
-// for (let i=0;i<10;i++)
+// else
 // {
-//     console.log(i);
+//     console.log("Çıkış Gerçekleşmedi!");
 // }
+//console.log(data2);    // false veya true döndürür
 
-// for (let i=0;i<10;i++)
+
+// location
+
+//veri = window.location;         // hepsini verir
+//veri = window.location.href;   // sadece server adı
+//veri = window.location.hostname;  //127.0.0.1
+//veri = window.location.protocol;  //http:
+
+//window.location.href="https://www.udemy.com";
+//window.location.reload();   //siteyi sürekli sürekli yükler
+
+//window.navigator ===> tarayıcının "kimlik kartı" gibidir. Ziyaretçinin hangi tarayıcıyı kullandığı, işletim sistemi, dil ayarları ve hatta pil durumu gibi donanımsal bilgilerine ulaşmanı sağlar.
+//window.document ===> sitenin html yapısına erişirsin
+// bu iki yöntemi console'dan yaz
+
+//console.log(veri); 
+
+
+
+// Scope
+
+// Global Scope
+
+var veri1 = 5;  // global
+let veri2 = 10;
+const veri3 = 15;
+
+// function fonksiyon()
 // {
-//     if (i==3)
-//     {
-//         console.log("Seçilen rakam:" + i);
-//         break;
-//     }
-//     console.log(i);
+//     var veri1 = 30;
+//     let veri2 = 40;
+//     const veri3 = 50;
+
+//     console.log(veri1,veri2,veri3);   // 30 40 50
 // }
-
-// let toplam = 0;
-
-// for (let i=1;i<10;i++)
-// {
-//     toplam+=i;
-// }
-// console.log("Toplam: " + toplam);
-
-// let sonuc = 1;
-
-// for (let i=1;i<6;i++)
-// {
-//     sonuc*=i;
-// }
-// console.log("Sonuç: " + sonuc)
+// fonksiyon();
 
 
+// console.log(veri1,veri2,veri3);       // 5 10 15
 
-// Dizi ve Objelerde Döngüler
-
-
-let cities = ["İstanbul","Konya","Ankara","Sakarya","İzmir"];
-
-let users = 
-[
-    {firstName: "Burak",lastName:"Özyurt"},
-    {firstName: "Nisa",lastName:"Koçak"},
-    {firstName: "Hasan",lastName:"Demir"},
-    {firstName: "Utku",lastName:"Çal"},
-    {firstName: "Ahmet",lastName:"Yiğit"}
-]
-
-// Diziler
-
-// for(let i=0;i<cities.length;i++)
-// {
-//     console.log(cities[i]);
-// }
-
-
-// for-in metodu
-
-// for (let i in cities)
-// {
-//     console.log(`index: ${i} value: ${cities[i]}`);
-// }
-
-// cities.forEach(function(item){
-//     console.log(item);
-// });
-
-// for (let i=0;i<users.length;i++)
-// {
-//     console.log(users[i].firstName);
-// }
-
-// for (let i in users)
-// {
-//     console.log(`index: ${i} value: ${users[i].firstName}`);
-// }
-
-
-// map metodu (dizilerde)
-
-// let veri = users.map(function(item)
-// {
-//     return item.firstName + " " + item.lastName;
-// });
-// console.log(veri);
-
-let numbers = [1,3,5,6,8,9,12,43];
-let num = numbers.map(function(n)
+if(true)
 {
-    return n*n;
-});
-console.log(num);
+    var veri1 = 30;
+    let veri2 = 40;
+    const veri3 = 50;
+
+    console.log(veri1,veri2,veri3);    // 30 40 50
+}
+console.log(veri1,veri2,veri3);        // 30 10 15 var blokta değişir
+
+//console.log(a);
+//console.log(b);    // blok içinde var kullandıysak geçerliliğini blok dışında da sürdürür ama let ve const sürdürmez
+//console.log(c);    // hem blok içi hem blok dışı için var kullan
+
+
+var admin_password = "1111";
+// globalde 1111 ama blokta değişiyor. O yüzden burada var yerine let veya const kullan
+// let ve const kullan
+if(true)
+{
+    var admin_password = "2222";
+}
