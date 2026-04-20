@@ -1,42 +1,43 @@
 
-// Elementlerin Seçilmesi
+// -- Çoklu Element Seçimi --
 
-// -- Tek Element Seçimi --
-
-// document.getElementById() metodu
+// document.getElementsByClassName()
 
 let veri;
 
-// veri = document.getElementById("header");
-// veri = document.getElementById("header").id;
-// veri = document.getElementById("header").className;
+//veri = document.getElementsByClassName("list-group-item");
 
-// veri = document.getElementById("header");  
-//veri = veri.id;         // uzun uzun yapmak yerine böyle de olur
-//veri = veri.className;
+//veri = document.getElementsByClassName("list-group-item")[0];  // 1.index sadece
 
-// veri.style.color = "blue";
-// veri.style.fontSize = "50px";
-//veri.style.fontWeight = "bold";
-//veri.style.display = "none";
+//veri = veri[2];   // böyle de çağırılabilir farklı yöntem
 
-// document.getElementById("header").innerText = "Yapılacaklar";
-// document.getElementById("header").innerText = "<b> Yapılacaklar </b>";  // burda ekranda <b> kısımları da yazıyor. Ondan dolayı innerText yerine innerHTML
-// document.getElementById("header").innerHTML = "<b> Yapılacaklar </b>";
+// veri[1].style.fontSize = "30px";
+// veri[1].style.color = "red";
+// veri[2].textContent = "new item";
+// veri[2].style.color = "orange";
 
-// console.log(veri);
+// for(let i=0;i<veri.length;i++)
+// {
+//     console.log(veri[i].style.color="brown");
+//     console.log(veri[i].textContent="new item");   // foreach yok o yüzden for ile hepsini aynı anda değiştirme 
+// }
 
 
-// document.querySelector() metodu
+// document.getElementsByTagName() metodu   ===> Alternatif yöntemi
 
-//console.log(document.querySelector("#header"));
-//console.log(document.querySelector(".card-header"));
-//console.log(document.querySelector("div"));
+// veri = document.getElementsByTagName("li");
+// veri = document.getElementsByTagName("a");  // bütün a'lar liste içi dışı
 
-// document.querySelector("li").style.color = "blue";  // ilk elemanı yaptı
-// document.querySelector("li:last-child").style.color = "orange";   // son elemanı
-// document.querySelector("li:nth-child(2)").style.color = "brown";
+//veri = document.getElementById("task-list").getElementsByTagName("a");  // liste içindeki a'lar
 
-document.querySelector("li").className = "list-group-item list-group-item-danger";   // class değişimi
 
-document.querySelector("li").classList.add("active");
+// document.querySelectorAll() metodu
+
+veri = document.querySelectorAll("li");
+
+veri.forEach(function(item, index)
+{   
+    item.textContent=`${index}-) item`;     // NodeList foreach olduğu için
+});
+
+console.log(veri);
