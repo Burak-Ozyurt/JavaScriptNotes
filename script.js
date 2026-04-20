@@ -1,43 +1,47 @@
 
-// -- Çoklu Element Seçimi --
+// Elementler Üzerinde Gezinme
 
-// document.getElementsByClassName()
+let value;
 
-let veri;
+const todoList = document.querySelector(".list-group");
+const todo = document.querySelector(".list-group-item:nth-child(2)");
+const card = document.querySelector(".card");
 
-//veri = document.getElementsByClassName("list-group-item");
-
-//veri = document.getElementsByClassName("list-group-item")[0];  // 1.index sadece
-
-//veri = veri[2];   // böyle de çağırılabilir farklı yöntem
-
-// veri[1].style.fontSize = "30px";
-// veri[1].style.color = "red";
-// veri[2].textContent = "new item";
-// veri[2].style.color = "orange";
-
-// for(let i=0;i<veri.length;i++)
-// {
-//     console.log(veri[i].style.color="brown");
-//     console.log(veri[i].textContent="new item");   // foreach yok o yüzden for ile hepsini aynı anda değiştirme 
-// }
+value = todoList;
+value = todo;
+value = card;
 
 
-// document.getElementsByTagName() metodu   ===> Alternatif yöntemi
+// Child Nodes metodu
 
-// veri = document.getElementsByTagName("li");
-// veri = document.getElementsByTagName("a");  // bütün a'lar liste içi dışı
+value = todoList.childNodes;  // tüm ögeleri seçti
 
-//veri = document.getElementById("task-list").getElementsByTagName("a");  // liste içindeki a'lar
+value = todoList.children;  // sadece elementleri seçti
+value = todoList.children[0];
+value = todoList.children[todoList.children.length-1];   // son element
+value = todoList.children[1].textContent = "değişen madde";
 
+value = card;
+value = card.children;
+value = card.children[1].children[0].textContent = "Merhaba";
 
-// document.querySelectorAll() metodu
+value = todoList;
+//value = todoList.children[0];
+value = todoList.firstElementChild;  // aynı yöntem üsttekiyle
+value = todoList.lastElementChild;
 
-veri = document.querySelectorAll("li");
+value = todoList.children.length;
+value = todoList.childElementCount;   // length yerine alternatif
 
-veri.forEach(function(item, index)
-{   
-    item.textContent=`${index}-) item`;     // NodeList foreach olduğu için
-});
+value = card;
+value = card.parentElement;
+value = card.parentElement.parentElement;
 
-console.log(veri);
+value = todo;
+value = todo.previousElementSibling;
+value = todo.nextElementSibling;
+
+value = todo.nextElementSibling.nextElementSibling;
+value = todo.previousElementSibling.previousElementSibling;   // gidemezsek null yazar
+
+console.log(value);
