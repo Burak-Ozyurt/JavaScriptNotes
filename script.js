@@ -1,47 +1,30 @@
 
-// Elementler Üzerinde Gezinme
+// Element Oluşturma
 
-let value;
-
-const todoList = document.querySelector(".list-group");
-const todo = document.querySelector(".list-group-item:nth-child(2)");
-const card = document.querySelector(".card");
-
-value = todoList;
-value = todo;
-value = card;
+const li = document.createElement("li");
 
 
-// Child Nodes metodu
+// add class
 
-value = todoList.childNodes;  // tüm ögeleri seçti
+li.className = "list-group-item list-group-item-secondary";
 
-value = todoList.children;  // sadece elementleri seçti
-value = todoList.children[0];
-value = todoList.children[todoList.children.length-1];   // son element
-value = todoList.children[1].textContent = "değişen madde";
 
-value = card;
-value = card.children;
-value = card.children[1].children[0].textContent = "Merhaba";
+// attribute
 
-value = todoList;
-//value = todoList.children[0];
-value = todoList.firstElementChild;  // aynı yöntem üsttekiyle
-value = todoList.lastElementChild;
+li.setAttribute("title","new item");
+li.setAttribute("data-id","5");
 
-value = todoList.children.length;
-value = todoList.childElementCount;   // length yerine alternatif
+const text = document.createTextNode("new item");
 
-value = card;
-value = card.parentElement;
-value = card.parentElement.parentElement;
+li.appendChild(text);
 
-value = todo;
-value = todo.previousElementSibling;
-value = todo.nextElementSibling;
+const a = document.createElement("a");
+a.setAttribute("href","#");
+a.className = "delete-item float-right";
+a.innerHTML = '<i class="fas fa-times"></i>';
 
-value = todo.nextElementSibling.nextElementSibling;
-value = todo.previousElementSibling.previousElementSibling;   // gidemezsek null yazar
+li.appendChild(a);
 
-console.log(value);
+document.querySelector("#task-list").appendChild(li);
+
+console.log(li);
