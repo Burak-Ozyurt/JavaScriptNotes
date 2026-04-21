@@ -1,25 +1,37 @@
 
-// Element Silme
+// Element Güncelleme
 
+const cardHeader = document.querySelector(".card-header");
+
+const h2 = document.createElement("h2");
+h2.setAttribute("class","card-header");
+h2.appendChild(document.createTextNode("Yeni Listeler"));
+
+const parent = document.querySelector(".card");
+parent.replaceChild(h2,cardHeader);
+
+
+// Class da güncelleme
 
 const taskList = document.querySelector("#task-list");
 
-//taskList.remove();   // hepsini siler
+let value;
 
-//taskList.childNodes[7].remove();   // biraz kafa karıştırıcı
+link = taskList.children[0].children[0];
 
-//taskList.children[1].remove();   // bu çok daha pratik
+value = link.className;
+value = link.classList;
+//value = link.classList[0];
 
-//taskList.removeChild(taskList.children[3]);  // bu da var
+link.classList.add("new");
+link.classList.remove("new");
 
 
-// Attribute Silme
+// Attribute güncelleme
 
-//taskList.children[1].removeAttribute("class");
+value = link.getAttribute("href");
+value = link.setAttribute("href","https://google.com");
 
-for(let i=0;i<taskList.children.length;i++)
-{
-    taskList.children[i].removeAttribute("class");  // hepsini siler
-}
+value = link.hasAttribute("href");
 
-console.log(taskList);
+console.log(value);
