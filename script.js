@@ -1,30 +1,25 @@
 
-// Element Oluşturma
-
-const li = document.createElement("li");
+// Element Silme
 
 
-// add class
+const taskList = document.querySelector("#task-list");
 
-li.className = "list-group-item list-group-item-secondary";
+//taskList.remove();   // hepsini siler
+
+//taskList.childNodes[7].remove();   // biraz kafa karıştırıcı
+
+//taskList.children[1].remove();   // bu çok daha pratik
+
+//taskList.removeChild(taskList.children[3]);  // bu da var
 
 
-// attribute
+// Attribute Silme
 
-li.setAttribute("title","new item");
-li.setAttribute("data-id","5");
+//taskList.children[1].removeAttribute("class");
 
-const text = document.createTextNode("new item");
+for(let i=0;i<taskList.children.length;i++)
+{
+    taskList.children[i].removeAttribute("class");  // hepsini siler
+}
 
-li.appendChild(text);
-
-const a = document.createElement("a");
-a.setAttribute("href","#");
-a.className = "delete-item float-right";
-a.innerHTML = '<i class="fas fa-times"></i>';
-
-li.appendChild(a);
-
-document.querySelector("#task-list").appendChild(li);
-
-console.log(li);
+console.log(taskList);
