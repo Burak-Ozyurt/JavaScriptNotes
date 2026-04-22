@@ -1,35 +1,61 @@
 
-// Event Listener ve Event Objesi
+// Mouse Eventleri
 
-const btn = document.querySelector("#btnDeleteAll");
-const btn2 = document.querySelector("#btnAddNewTask");
-
-// btn.addEventListener("click",function()
-// {
-//     console.log("Butona Tıklandı!");
-// });
+const btn = document.querySelector("#btnAddNewTask");
+const ul = document.querySelector("#task-list");
 
 
-// btn.addEventListener("click",btnClick);    // 2.yöntem daha profesyonel (fonksiyonu dışarıdan çağırmak)
-// btn2.addEventListener("click",btnClick);
+// click eventi
 
-// function btnClick()
-// {
-//     console.log("Butona Tıklandı!");
-// };
+// btn.addEventListener("click",run);
+// ul.addEventListener("click",run);
 
 
-btn.addEventListener("click",function(a)
+// double click eventi
+
+//btn.addEventListener("dblclick",run);    // 2 defa tıklayınca oluyo
+
+
+// mouse down eventi
+
+//btn.addEventListener("mousedown",run);
+
+
+// mouse up eventi
+
+//btn.addEventListener("mouseup",run);
+// Tıklarken mousedown çalışıyor, bıraktığım an mouseup
+
+
+// mouse enter eventi
+
+//btn.addEventListener("mouseenter",run);   // üzerine gelince
+
+
+// mouse leave eventi
+
+//btn.addEventListener("mouseleave",run);   // üzerinden gidince
+
+
+// mouse over eventi
+
+//ul.addEventListener("mouseover",run);
+
+
+// mouse out eventi
+
+//ul.addEventListener("mouseout",run);
+//Mouseover/out her alt elemanda "kabarcıklanıp" (bubbling) tekrar tekrar tetiklenirken, mouseenter/leave sadece ana kutunun sınırlarını baz alan daha temiz bir kontrol sağlar.
+
+
+// mouse move eventi
+
+ul.addEventListener("mousemove",run);
+//Mousemove, fare eleman üzerinde hareket ettiği her pikselde kesintisiz tetiklenen ve genellikle anlık koordinat takibi (X, Y) yapmak için kullanılan en "hareketli" olaydır.
+
+
+
+function run(event)
 {
-    let value;
-    value = a;
-    value = a.target;
-    value = a.target.id;
-    value = a.target.classList;
-    value = a.type;
-
-    a.preventDefault();
-
-    console.log(value);
-});
-
+    console.log(`event type: ${event.type}`);
+}
