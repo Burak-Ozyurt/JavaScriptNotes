@@ -1,61 +1,44 @@
 
-// Mouse Eventleri
+// Keyboard Eventleri
 
-const btn = document.querySelector("#btnAddNewTask");
-const ul = document.querySelector("#task-list");
-
-
-// click eventi
-
-// btn.addEventListener("click",run);
-// ul.addEventListener("click",run);
+const text = document.getElementById("txtTaskName");
 
 
-// double click eventi
-
-//btn.addEventListener("dblclick",run);    // 2 defa tıklayınca oluyo
-
-
-// mouse down eventi
-
-//btn.addEventListener("mousedown",run);
+// focus eventi
+//text.addEventListener("focus",run);   // elemana input girişinde
 
 
-// mouse up eventi
-
-//btn.addEventListener("mouseup",run);
-// Tıklarken mousedown çalışıyor, bıraktığım an mouseup
+// blur eventi
+//text.addEventListener("blur",run);    // focustan sonra dışarı dokununca
 
 
-// mouse enter eventi
-
-//btn.addEventListener("mouseenter",run);   // üzerine gelince
-
-
-// mouse leave eventi
-
-//btn.addEventListener("mouseleave",run);   // üzerinden gidince
+// paste eventi
+//text.addEventListener("paste",run);
 
 
-// mouse over eventi
-
-//ul.addEventListener("mouseover",run);
-
-
-// mouse out eventi
-
-//ul.addEventListener("mouseout",run);
-//Mouseover/out her alt elemanda "kabarcıklanıp" (bubbling) tekrar tekrar tetiklenirken, mouseenter/leave sadece ana kutunun sınırlarını baz alan daha temiz bir kontrol sağlar.
+// copy eventi
+//text.addEventListener("copy",run);
 
 
-// mouse move eventi
+// cut eventi
+//text.addEventListener("cut",run);
 
-ul.addEventListener("mousemove",run);
-//Mousemove, fare eleman üzerinde hareket ettiği her pikselde kesintisiz tetiklenen ve genellikle anlık koordinat takibi (X, Y) yapmak için kullanılan en "hareketli" olaydır.
+
+// select eventi
+//text.addEventListener("select",run);
+
+
+// keydown eventi
+//text.addEventListener("keydown",run);   // tuşa basış anı
+
+
+// keyup eventi
+text.addEventListener("keyup",run);     // tuşun bırakılması
 
 
 
-function run(event)
+function run(e)
 {
-    console.log(`event type: ${event.type}`);
+    console.log(e.type);
+    console.log(e.target.value);
 }
