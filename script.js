@@ -1,37 +1,35 @@
 
-// Element Güncelleme
+// Event Listener ve Event Objesi
 
-const cardHeader = document.querySelector(".card-header");
+const btn = document.querySelector("#btnDeleteAll");
+const btn2 = document.querySelector("#btnAddNewTask");
 
-const h2 = document.createElement("h2");
-h2.setAttribute("class","card-header");
-h2.appendChild(document.createTextNode("Yeni Listeler"));
-
-const parent = document.querySelector(".card");
-parent.replaceChild(h2,cardHeader);
-
-
-// Class da güncelleme
-
-const taskList = document.querySelector("#task-list");
-
-let value;
-
-link = taskList.children[0].children[0];
-
-value = link.className;
-value = link.classList;
-//value = link.classList[0];
-
-link.classList.add("new");
-link.classList.remove("new");
+// btn.addEventListener("click",function()
+// {
+//     console.log("Butona Tıklandı!");
+// });
 
 
-// Attribute güncelleme
+// btn.addEventListener("click",btnClick);    // 2.yöntem daha profesyonel (fonksiyonu dışarıdan çağırmak)
+// btn2.addEventListener("click",btnClick);
 
-value = link.getAttribute("href");
-value = link.setAttribute("href","https://google.com");
+// function btnClick()
+// {
+//     console.log("Butona Tıklandı!");
+// };
 
-value = link.hasAttribute("href");
 
-console.log(value);
+btn.addEventListener("click",function(a)
+{
+    let value;
+    value = a;
+    value = a.target;
+    value = a.target.id;
+    value = a.target.classList;
+    value = a.type;
+
+    a.preventDefault();
+
+    console.log(value);
+});
+
