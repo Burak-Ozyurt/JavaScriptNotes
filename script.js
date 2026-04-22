@@ -1,31 +1,35 @@
 // Tarayıcıların Depolama Alanları
 
-// Session Storage
-
-const add = document.querySelector("#add");
-const del = document.querySelector("#delete");
-const clear = document.querySelector("#clear");
-
-const addkey = document.querySelector("#addkey");
-const addvalue = document.querySelector("#addvalue");
-const deletekey = document.querySelector("#deletekey");
+// Local Storage
 
 
-add.addEventListener("click",addItem);
-del.addEventListener("click",deleteItem);
-clear.addEventListener("click",clearItem);
+// setItem
 
-function addItem(e)
+// localStorage.setItem("programlama","javascript");
+// localStorage.setItem("bilgisayar",1221);
+
+
+// getItem
+
+// const value = localStorage.getItem("bilgisayar");
+// console.log(value);
+// console.log(typeof value);    //1221 string olarak kayıtta
+
+
+// clear
+
+//localStorage.clear();
+
+
+// console.log(localStorage.getItem("klavye"));   //olmazsa değer null yazar
+
+if(localStorage.getItem("klavye") === null)
 {
-    sessionStorage.setItem(addkey.value, addvalue.value);
+    console.log("Sorgulanan Veri Bulunamadı!");
 }
-
-function deleteItem(e)
+else
 {
-    sessionStorage.removeItem(deletekey.value);
+    console.log("Sorgulanan Veri Bulundu!");
 }
+    
 
-function clearItem(e)
-{
-    sessionStorage.clear();
-}
