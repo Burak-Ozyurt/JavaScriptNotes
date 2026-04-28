@@ -8,6 +8,13 @@ const input = document.querySelector("#txtTaskName");
 const btnAddNewTask = document.querySelector("#btnAddNewTask");
 const btnDeleteAll = document.querySelector("#btnDeleteAll");
 const taskList = document.querySelector("#task-list");
+const items = ["Todo 1", "Todo 2", "Todo 3", "Todo 4","Todo 5"];
+
+
+// itemleri yükleme
+
+loadItems();
+
 
 eventListeners();
 
@@ -19,22 +26,24 @@ function eventListeners() {
     taskList.addEventListener("click", deleteItem);
 
     // delete all eventi
-    btnDeleteAll.addEventListener("click",deleteAllItems);
+    btnDeleteAll.addEventListener("click", deleteAllItems);
 
 }
 
 
-function addNewItem(e) {
-    if (input.value == ' ') {
-        alert("yeni item ekle!")
-        // console.log("submit");
-    }
+function loadItems() {
+    items.forEach(function (item) {
+        createItem(item);
+    });
+}
 
+
+function createItem(text) {
     // li oluşturma
 
     const li = document.createElement("li");
     li.className = "list-group-item list-group-item-secondary";
-    li.appendChild(document.createTextNode(input.value));
+    li.appendChild(document.createTextNode(text));
 
 
     // a oluşturma
@@ -46,6 +55,20 @@ function addNewItem(e) {
 
     li.appendChild(a);
     taskList.appendChild(li);
+}
+
+
+function addNewItem(e) {
+    if (input.value.trim() === '') {
+    alert("yeni item girin!");
+    return; // Fonksiyonun devam etmesini engeller
+}
+
+
+    // item oluşturma
+
+    createItem(input.value);
+
 
     input.value = "";
 
@@ -56,8 +79,9 @@ function addNewItem(e) {
 // Eleman Silme 
 
 function deleteItem(e) {
-    if (confirm("Silmek İstediğinize Emin Misiniz?")) {
-        if (e.target.className === "fas fa-times") {
+
+    if (e.target.className === "fas fa-times") {
+        if (confirm("Silmek İstediğinize Emin Misiniz?")) {
             //console.log(e.target);
             e.target.parentElement.parentElement.remove();
         }
@@ -68,18 +92,16 @@ function deleteItem(e) {
 
 // Tüm Elemanları Silmek
 
-function deleteAllItems(e)
-{
-    if(confirm("Tüm Elemanları Silmek İstediğinize Emin Misiniz?"))
-    {
-        taskList.childNodes.forEach(function(item){
-            //console.log(item);
-            if(item.nodeType === 1)
-            {
-                item.remove();
-            }
-        });
+function deleteAllItems(e) {
+    if (confirm("Tüm Elemanları Silmek İstediğinize Emin Misiniz?")) {
+        // taskList.childNodes.forEach(function (item) {
+             //console.log(item);
+        //     if (item.nodeType === 1) {
+        //         item.remove();
+        //     }
+        // });
     }
 
- //   taskList.innerHTML = ""; ====> Alternatif olarak
+    // Alternatif
+       taskList.innerHTML = ""; 
 }
