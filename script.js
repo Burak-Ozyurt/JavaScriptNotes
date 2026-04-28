@@ -109,9 +109,25 @@ function deleteItem(e) {
         if (confirm("Silmek İstediğinize Emin Misiniz?")) {
             //console.log(e.target);
             e.target.parentElement.parentElement.remove();
+            deleteTodoFromStorage(e.target.parentElement.parentElement.textContent);
         }
     }
     e.preventDefault();
+}
+
+
+function deleteTodoFromStorage(deletetodo)
+{
+    let todos = getItemsFromLS();
+
+    todos.forEach(function(todo,index){
+        if(todo === deletetodo)
+        {
+            todos.splice(index,1);
+        }
+    });
+    localStorage.setItem("todos",JSON.stringify(todos));
+
 }
 
 
@@ -119,14 +135,14 @@ function deleteItem(e) {
 
 function deleteAllItems(e) {
     if (confirm("Tüm Elemanları Silmek İstediğinize Emin Misiniz?")) {
-        // taskList.childNodes.forEach(function (item) {
-             //console.log(item);
-        //     if (item.nodeType === 1) {
-        //         item.remove();
-        //     }
-        // });
+
+        while(taskList.firstChild)
+        {
+            taskList.removeChild(taskList.firstChild)
+        }
+        localStorage.clear();
     }
 
     // Alternatif
-       taskList.innerHTML = ""; 
+      // taskList.innerHTML = ""; 
 }
