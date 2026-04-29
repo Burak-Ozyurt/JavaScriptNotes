@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <title>JQuery</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.js"
+        integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <a href="#">Link1</a>
+    <h3>Kurslarım</h3>
+    <ul id="liste">
+        <li class="item1">WEB Geliştirme</li>
+        <li>Mobil Oyun Tasarlama <a href="#"></a>Link2</li>
+        <li>JavaScript Öğrenme</li>
+    </ul>
+
+
+    <script>
+        console.log($("#liste"));   // alttaki ul'ye göre daha hızlıdır ve unique
+
+        console.log($("h3"));
+
+        console.log($("ul"));
+
+        console.log($("li"));
+
+        console.log($(".item1"));
+
+        console.log($("a"));
+
+        console.log($("li a"));
+
+        console.log($("#liste a"));  // aynı a
+
+    </script>
+</body>
+
+</html>
